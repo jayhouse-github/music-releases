@@ -1,0 +1,40 @@
+﻿/*
+   default.css
+   
+   Sets up some css stuff common to all layouts.
+   
+   Created by Jamie on 2009-06-10.
+   Copyright 2009 Jamie. All rights reserved.
+*/
+
+/*Set all margins to 0*/
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.no_show {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.clear_left {
+    clear: left;
+}
+
+/*Stop dotted & blue borders appearing around picture links*/
+a {
+    outline: none;
+}
+
+    a img {
+        border: none;
+    }
+
+body {
+    margin: 0;
+}

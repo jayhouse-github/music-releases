@@ -1,0 +1,57 @@
+﻿@model Music_Releases_Website.Models.MusicReleaseCollection
+
+@helper detailPageSection(Music_Releases.BL.SimpleItem item, string storeLogoUrl, string storeLogoAltText)
+{
+    <div class="item_details">
+        <img src="@storeLogoUrl" alt="@storeLogoAltText" />
+        <a href="@item.Url" class="title_link" target="_blank">@item.Artist - @item.Title</a>
+        <br />
+        <span class="price" id="trigger">£<a href="@item.Url" class="title_link" target="_blank">@item.Price.ToString()</a></span>
+        <div class='tooltip_price'>
+            <h4>Listing Price</h4>
+            <p>
+                <br />
+                <strong>This is Amazon's list price, the sale price may be cheaper!</strong>
+            </p>
+        </div>
+        <br />
+        <br />
+        <br />
+    </div>
+}
+
+<div class="detail_container">
+    <br />
+    <h2>@Model.Artist - @Model.Title</h2>
+    <span class="release_date">Released: @Model.ReleaseDate.ToShortDateString()</span>
+    <img src="@Model.PicUrl" alt="album picture" />
+    <div class="price_details">
+        <h3>CD</h3>
+        @if (Model.AmazonCD != null)
+        {
+            @detailPageSection(Model.AmazonCD, "/images/amazon_logo_small.gif", "amazon logo")
+        }
+        else {
+            <text>Not found in Amazon CD</text>
+        }
+        <br />
+        <br />
+        <h3>DOWNLOADS</h3>
+        @if (Model.AmazonMP3 != null)
+        {
+            @detailPageSection(Model.AmazonMP3, "/images/amazonmp3_small.gif", "amazon mp3")
+        }
+        else {
+            <text>Not found in Amazon MP3</text><br />
+        }
+        @if (Model.ITunes != null)
+        {
+            @detailPageSection(Model.ITunes, "/images/itunes_logo.gif", "itubes logo")    
+        }
+        else {
+            <text>Not found in Itunes</text>
+        }
+        </div>
+    <div class="clear"></div>
+</div>
+

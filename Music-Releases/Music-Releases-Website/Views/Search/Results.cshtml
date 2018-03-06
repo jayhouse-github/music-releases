@@ -1,0 +1,14 @@
+﻿@model List<Music_Releases.BL.ExtendedItem>
+@{
+    ViewBag.Title = "Results";
+}
+
+<div class="detail_container results_container">
+    <h1>Results</h1>
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item"><a href="@Url.Action("Detail","Home",new {asin =  @item.Asin})"><img src="@item.PicUrl" /> @item.Artist - @item.Title - @item.ReleaseDate.ToShortDateString()</a></li>
+        }
+    </ul>
+</div>

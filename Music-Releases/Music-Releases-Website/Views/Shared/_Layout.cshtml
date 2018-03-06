@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - New Music Releases</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/releasesscripts");
+</head>
+<body>
+    <div class="main_container">
+        <div class="banner_container_left">
+            <a href="@Url.Action("Index", "Home")"><img src="~/images/logo.gif" alt="logo" /></a>
+        </div>
+        <div class="banner_container_right">
+            <div class="top_menu">
+                <ul>
+                    <li>@Html.ActionLink("Search", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Create New Feed", "Index", "NewFeed")</li>
+                    <li>@Html.ActionLink("How It Works", "Index", "howitworks")</li>
+                    <li>@Html.ActionLink("FAQs", "index", "faqs")</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="slogan_container">
+        </div>
+        @RenderBody()
+        <div class="clear"></div>
+        <div class="footer_container">
+            <div class="footer_columns_container">
+                <div class="footer_left">
+                    <h3>Info</h3>
+                    <ul>
+                        <li>@Html.ActionLink("How It Works", "Index", "howitworks")</li>
+                        <li>@Html.ActionLink("FAQs", "index", "faqs")</li>
+                        <li>@Html.ActionLink("What is RSS", "index", "rss")</li>
+                    </ul>
+                </div>
+                <div class="footer_mid_right">
+                    <h3>Contact and Terms</h3>
+                    <ul>
+                        <li><a href="mailto:info@my-cue.co.uk">Contact Us</a></li>
+                        <li>@Html.ActionLink("Terms of Use", "Index", "terms")</li>
+                        <li>@Html.ActionLink("Copyright information", "copyright", "Home")</li>
+                    </ul>
+                </div>
+                <div class="footer_mid_right">              
+                </div>
+                <div class="clear"></div>
+            </div><!--footer_columns_container-->
+        </div><!--Footer-->
+    </div>
+</body>
+</html>
