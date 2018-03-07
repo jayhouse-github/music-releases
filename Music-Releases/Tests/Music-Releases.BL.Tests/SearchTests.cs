@@ -11,16 +11,6 @@ namespace Music_Releases.BL.Tests
         [TestMethod]
         public void SearchFromASINIsNotNull()
         {
-            ApiCreds creds = new ApiCreds
-            {
-                AmazonAccessId = "AKIAIU5OQJGAEPBSTBXA",
-                AmazonEndPoint = "webservices.amazon.co.uk",
-                AmazonAssociateTag = "etgsoftware-21",
-                AmazonSecretKey = "NclX7m/JD7ET/A9pKjiWcUnt8PhLfeo/j+FMZOD4",
-                ItunesAffiliateId = "1757335",
-                ItunesRequestUrl = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch"
-            };
-
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
             var itunesItemRepo = kernal.Get<IItunesItemRepository>();
@@ -33,16 +23,6 @@ namespace Music_Releases.BL.Tests
         [TestMethod]
         public void SearchFromASINReturnsNoResults()
         {
-            ApiCreds creds = new ApiCreds
-            {
-                AmazonAccessId = "AKIAIU5OQJGAEPBSTBXA",
-                AmazonEndPoint = "webservices.amazon.co.uk",
-                AmazonAssociateTag = "etgsoftware-21",
-                AmazonSecretKey = "NclX7m/JD7ET/A9pKjiWcUnt8PhLfeo/j+FMZOD4",
-                ItunesAffiliateId = "1757335",
-                ItunesRequestUrl = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch"
-            };
-
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
             var itunesItemRepo = kernal.Get<IItunesItemRepository>();
@@ -55,16 +35,6 @@ namespace Music_Releases.BL.Tests
         [TestMethod]
         public void AmazonItemSearchByASINIsNull()
         {
-            ApiCreds creds = new ApiCreds
-            {
-                AmazonAccessId = "AKIAIU5OQJGAEPBSTBXA",
-                AmazonEndPoint = "webservices.amazon.co.uk",
-                AmazonAssociateTag = "etgsoftware-21",
-                AmazonSecretKey = "NclX7m/JD7ET/A9pKjiWcUnt8PhLfeo/j+FMZOD4",
-                ItunesAffiliateId = "1757335",
-                ItunesRequestUrl = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch"
-            };
-
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
 
@@ -76,16 +46,6 @@ namespace Music_Releases.BL.Tests
         [TestMethod]
         public void AmazonItemSearchBySearchTermIsNull()
         {
-            ApiCreds creds = new ApiCreds
-            {
-                AmazonAccessId = "AKIAIU5OQJGAEPBSTBXA",
-                AmazonEndPoint = "webservices.amazon.co.uk",
-                AmazonAssociateTag = "etgsoftware-21",
-                AmazonSecretKey = "NclX7m/JD7ET/A9pKjiWcUnt8PhLfeo/j+FMZOD4",
-                ItunesAffiliateId = "1757335",
-                ItunesRequestUrl = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch"
-            };
-
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
 
