@@ -14,12 +14,12 @@ namespace Music_Releases.Repository.Tests
     {
         ApiCreds creds = new ApiCreds
         {
-            AmazonAccessId = ConfigurationSettings.AppSettings["AmazonAccessId"],
-            AmazonEndPoint = ConfigurationSettings.AppSettings["AmazonEndPoint"],
-            AmazonAssociateTag = ConfigurationSettings.AppSettings["AmazonAssociateTag"],
-            AmazonSecretKey = ConfigurationSettings.AppSettings["AmazonSecretKey"],
-            ItunesAffiliateId = ConfigurationSettings.AppSettings["ItunesAffiliateId"],
-            ItunesRequestUrl = ConfigurationSettings.AppSettings["ItunesRequestUrl"]
+            AmazonAccessId = ConfigurationManager.AppSettings["AmazonAccessId"],
+            AmazonEndPoint = ConfigurationManager.AppSettings["AmazonEndPoint"],
+            AmazonAssociateTag = ConfigurationManager.AppSettings["AmazonAssociateTag"],
+            AmazonSecretKey = ConfigurationManager.AppSettings["AmazonSecretKey"],
+            ItunesAffiliateId = ConfigurationManager.AppSettings["ItunesAffiliateId"],
+            ItunesRequestUrl = ConfigurationManager.AppSettings["ItunesRequestUrl"]
         };
 
         public override void Load()
