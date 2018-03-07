@@ -46,6 +46,8 @@
     <Compile Include="ExtendedItem.cs" />
     <Compile Include="ReleaseDetailItem.cs" />
     <Compile Include="ReleaseDetails.cs" />
+    <Compile Include="ReleaseItemModels.cs" />
+    <Compile Include="ReleaseSearch.cs" />
     <Compile Include="SimpleItem.cs" />
     <Compile Include="ItunesItemSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

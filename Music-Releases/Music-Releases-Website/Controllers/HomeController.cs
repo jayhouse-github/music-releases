@@ -19,7 +19,7 @@ namespace Music_Releases_Website.Controllers
             return View();
         }
 
-        // POST: Search/Create
+        // POST: Search
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(SearchBandsViewModel bandsModel)
@@ -51,60 +51,22 @@ namespace Music_Releases_Website.Controllers
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
             var itunesItemRepo = kernal.Get<IItunesItemRepository>();
-            ReleaseDetailItem releaseDetail = null;
+            var releaseSearch = new ReleaseSearch(amazonItemRepo, itunesItemRepo);
+            MusicReleaseCollection musicReleaseDetailModel = null;
 
-            if (asin != null)
+            try
             {
-                try
-                {
-                    releaseDetail = new ReleaseDetails(amazonItemRepo, itunesItemRepo).GetReleaseDetailsFromASIN(asin);
-                }
-                catch (WebException ex)
-                {
-                    return RedirectToAction("Index", "Error");
-                }
+                musicReleaseDetailModel = releaseSearch.GetDetails(asin);
             }
+            catch(WebException ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+
+            if(musicReleaseDetailModel != null)
+                return View(musicReleaseDetailModel);
             else
-            {
                 return RedirectToAction("Index", "Error");
-            }
-
-            var amazonCDItem = releaseDetail.Items.Where(i => i.Source.ToLower() == "amazoncd").FirstOrDefault();
-            var amazonMP3Item = releaseDetail.Items.Where(i => i.Source.ToLower() == "amazonmp3").FirstOrDefault();
-            var itunesItem = releaseDetail.Items.Where(i => i.Source.ToLower() == "itunes").FirstOrDefault();
-
-            if (amazonCDItem == null && amazonMP3Item == null && itunesItem == null)
-            {
-                return RedirectToAction("Index", "Error");
-            }
-
-            var musicReleaseDetailModel = new MusicReleaseCollection
-            {
-                PicUrl = releaseDetail.PicUrl,
-                ReleaseDate = releaseDetail.ReleaseDate,
-                Asin = releaseDetail.Asin,
-                AmazonCD = amazonCDItem,
-                AmazonMP3 = amazonMP3Item,
-                ITunes = itunesItem
-            };
-
-            if (amazonCDItem != null)
-            {
-                musicReleaseDetailModel.Artist = amazonCDItem.Artist;
-                musicReleaseDetailModel.Title = amazonCDItem.Title;
-            }
-            else if (amazonMP3Item != null)
-            {
-                amazonMP3Item.Artist = amazonCDItem.Artist;
-                amazonMP3Item.Title = amazonCDItem.Title;
-            }
-            else if (itunesItem != null)
-            {
-                itunesItem.Artist = amazonCDItem.Artist;
-                itunesItem.Title = amazonCDItem.Title;
-            }
-
-            return View(musicReleaseDetailModel);
         }
     }
 }
