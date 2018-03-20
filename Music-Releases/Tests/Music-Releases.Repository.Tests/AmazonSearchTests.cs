@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
+using Music_Releases.BL;
 
 namespace Music_Releases.Repository.Tests
 {

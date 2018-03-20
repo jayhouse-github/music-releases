@@ -2,6 +2,7 @@
 using System.Xml;
 using Music_Releases.Repository.Helpers;
 using System.Net;
+using Music_Releases.BL;
 
 namespace Music_Releases.Repository
 {
@@ -23,7 +24,7 @@ namespace Music_Releases.Repository
         public IList<ICatalogueExtendedInfo> SearchAmazon(string searchTerms)
         {
             var searchArray = searchTerms.Split(',');
-            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(Enums.SearchType.ArtistSearch);
+            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(SearchType.ArtistSearch);
             IList<ICatalogueExtendedInfo> returnArray = new List<ICatalogueExtendedInfo>();
 
             foreach (var searchItem in searchArray) {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Music_Releases.BL;
 
 namespace Music_Releases.Repository.Helpers
 {

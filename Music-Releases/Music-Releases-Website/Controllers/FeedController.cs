@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
-using Music_Releases.Repository;
 using Music_Releases_Website.Classes;
 using Music_Releases.BL;
 

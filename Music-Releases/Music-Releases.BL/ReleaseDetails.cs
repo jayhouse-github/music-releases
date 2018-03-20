@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Music_Releases.Repository;
 
 namespace Music_Releases.BL
 {
@@ -42,7 +41,7 @@ namespace Music_Releases.BL
                 });
 
                 var searchTerm = amazonSearchResult.Artist + " " + amazonSearchResult.Title;
-                var mp3Result = amazonSearch.GetBySearchTerm(searchTerm, Repository.SearchIndex.MP3);
+                var mp3Result = amazonSearch.GetBySearchTerm(searchTerm, SearchIndex.MP3);
 
                 if (mp3Result != null)
                 {

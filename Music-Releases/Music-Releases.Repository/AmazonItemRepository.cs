@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Xml;
 using System.Net;
+using Music_Releases.BL;
 
 namespace Music_Releases.Repository
 {
@@ -24,7 +25,7 @@ namespace Music_Releases.Repository
         public ICatalogueExtendedInfo LookupASIN(string ASINNumber)
         {
             var itemNumber = HttpUtility.UrlEncode(ASINNumber);
-            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(Enums.SearchType.ASIN);
+            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(SearchType.ASIN);
             ICatalogueExtendedInfo returnItem = new CatalogueExtendedInfo();
     
             SignedRequestHelper urlHelper = new SignedRequestHelper(this._accessID, this._secretKey, this._requestEndpoint, this._associateTag);
@@ -63,7 +64,7 @@ namespace Music_Releases.Repository
         {
             string searchIndexString;
             var searchStringEncoded = HttpUtility.UrlEncode(searchString);
-            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(Enums.SearchType.SearchTerm);
+            IDictionary<string, string> searchParams = AmazonHelper.GetBaseSearchParams(SearchType.SearchTerm);
             ICatalogueExtendedInfo returnItem = new CatalogueExtendedInfo();
 
             switch (searchIndex)
@@ -109,7 +110,5 @@ namespace Music_Releases.Repository
             }
             return returnItem;
         }
-
-        
     }
 }

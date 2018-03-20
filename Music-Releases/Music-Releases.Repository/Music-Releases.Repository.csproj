@@ -49,22 +49,21 @@
     <Compile Include="AmazonSearchRepository.cs" />
     <Compile Include="CatalogueExtendedInfo.cs" />
     <Compile Include="CatalogueInfo.cs" />
-    <Compile Include="Enums\SearchType.cs" />
     <Compile Include="Helpers\AmazonHelper.cs" />
     <Compile Include="Helpers\ItunesHelper.cs" />
-    <Compile Include="Interfaces\ICatalogueExtendedInfo.cs" />
-    <Compile Include="Interfaces\ICatalogueInfo.cs" />
     <Compile Include="Helpers\SignedRequestHelper.cs" />
-    <Compile Include="Interfaces\IAmazonItemRepository.cs" />
-    <Compile Include="Interfaces\IAmazonSearchRepository.cs" />
-    <Compile Include="Interfaces\IItunesItemRepository.cs" />
     <Compile Include="ItunesItemCollection.cs" />
     <Compile Include="ItunesItemRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enums\SearchIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Music-Releases.BL\Music-Releases.BL.csproj">
+      <Project>{35423627-0176-4268-a62b-ec43fc5dc765}</Project>
+      <Name>Music-Releases.BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

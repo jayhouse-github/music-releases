@@ -43,7 +43,14 @@
     <Compile Include="AmazonItemSearch.cs" />
     <Compile Include="AmazonSearch.cs" />
     <Compile Include="ApiCreds.cs" />
+    <Compile Include="Enums\SearchIndex.cs" />
+    <Compile Include="Enums\SearchType.cs" />
     <Compile Include="ExtendedItem.cs" />
+    <Compile Include="Interfaces\IAmazonItemRepository.cs" />
+    <Compile Include="Interfaces\IAmazonSearchRepository.cs" />
+    <Compile Include="Interfaces\ICatalogueExtendedInfo.cs" />
+    <Compile Include="Interfaces\ICatalogueInfo.cs" />
+    <Compile Include="Interfaces\IItunesItemRepository.cs" />
     <Compile Include="ReleaseDetailItem.cs" />
     <Compile Include="ReleaseDetails.cs" />
     <Compile Include="ReleaseItemModels.cs" />
@@ -51,12 +58,6 @@
     <Compile Include="SimpleItem.cs" />
     <Compile Include="ItunesItemSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Music-Releases.Repository\Music-Releases.Repository.csproj">
-      <Project>{2044fc72-cb87-4aff-9f27-715ef908388a}</Project>
-      <Name>Music-Releases.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

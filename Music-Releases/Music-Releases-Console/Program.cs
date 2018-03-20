@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Music_Releases.BL;
 using System.Net;
-using Music_Releases.Repository;
 using Ninject;
 
 namespace Music_Releases_Console

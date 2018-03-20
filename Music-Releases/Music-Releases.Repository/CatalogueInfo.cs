@@ -1,4 +1,6 @@
-﻿namespace Music_Releases.Repository
+﻿using Music_Releases.BL;
+
+namespace Music_Releases.Repository
 {
     class CatalogueInfo : ICatalogueInfo
     {

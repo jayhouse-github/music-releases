@@ -1,6 +1,6 @@
-﻿namespace Music_Releases.Repository.Enums
+﻿namespace Music_Releases.BL
 {
-    enum SearchType
+    public enum SearchType
     {
         ASIN,
         SearchTerm,

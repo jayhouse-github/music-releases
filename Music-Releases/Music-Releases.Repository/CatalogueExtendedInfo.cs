@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Music_Releases.BL;
+
 namespace Music_Releases.Repository
 {
     class CatalogueExtendedInfo : CatalogueInfo, ICatalogueExtendedInfo

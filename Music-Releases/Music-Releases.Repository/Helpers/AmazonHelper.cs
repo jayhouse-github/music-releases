@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using Music_Releases.BL;
 
 namespace Music_Releases.Repository.Helpers
 {
     internal static class AmazonHelper
     {
-        internal static IDictionary<string, string> GetBaseSearchParams(Enums.SearchType type)
+        internal static IDictionary<string, string> GetBaseSearchParams(SearchType type)
         {
             IDictionary<string, string> searchParams = new Dictionary<string, string>();
 
             switch (type)
             {
-                case Enums.SearchType.ASIN:                
+                case SearchType.ASIN:                
                     searchParams["Operation"] = "ItemLookup";
                     searchParams["ResponseGroup"] = "Medium";
                     searchParams["Service"] = "AWSCommerceService";
                     break;
-                case Enums.SearchType.SearchTerm:                   
+                case SearchType.SearchTerm:                   
                     searchParams["Operation"] = "ItemSearch";
                     searchParams["ResponseGroup"] = "Medium";                 
                     searchParams["Service"] = "AWSCommerceService";
                     break;
-                case Enums.SearchType.ArtistSearch:
+                case SearchType.ArtistSearch:
                     searchParams["Condition"] = "New";
                     searchParams["Format"] = "Audio CD";
                     searchParams["Operation"] = "ItemSearch";

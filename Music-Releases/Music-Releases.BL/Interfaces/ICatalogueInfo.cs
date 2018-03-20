@@ -1,4 +1,4 @@
-﻿namespace Music_Releases.Repository
+﻿namespace Music_Releases.BL
 {
     public interface ICatalogueInfo
     {
