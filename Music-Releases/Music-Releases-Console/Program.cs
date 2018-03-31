@@ -60,7 +60,6 @@ namespace Music_Releases_Console
             }
 
             string[] arg1 = { "" };
-
             Main(arg1);
         }
     }

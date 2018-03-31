@@ -14,7 +14,7 @@ namespace Music_Releases.Repository.Tests
             IKernel kernal = new StandardKernel(new BindModule());
             var iTunesRepo = kernal.Get<IItunesItemRepository>();
 
-            ICatalogueInfo actual = iTunesRepo.GetInfo("ride weather diaries");
+            var actual = iTunesRepo.GetInfo("ride weather diaries");
 
             Assert.IsNotNull(actual);
         }
@@ -25,7 +25,7 @@ namespace Music_Releases.Repository.Tests
             IKernel kernal = new StandardKernel(new BindModule());
             var iTunesRepo = kernal.Get<IItunesItemRepository>();
 
-            ICatalogueInfo actual = iTunesRepo.GetInfo("sdfsdfsdfsdf");
+            var actual = iTunesRepo.GetInfo("sdfsdfsdfsdf");
 
             Assert.IsNull(actual);
         }
@@ -36,9 +36,9 @@ namespace Music_Releases.Repository.Tests
             IKernel kernal = new StandardKernel(new BindModule());
             var iTunesRepo = kernal.Get<IItunesItemRepository>();
 
-            ICatalogueInfo actual = iTunesRepo.GetInfo("ride weather diaries");
+            var actual = iTunesRepo.GetInfo("ride weather diaries");
 
-            string expectedArtist = "Ride";
+            var expectedArtist = "Ride";
 
             Assert.AreEqual(expectedArtist, actual.Artist, true);
         }
