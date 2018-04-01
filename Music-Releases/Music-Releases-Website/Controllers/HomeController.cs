@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using Music_Releases.BL;
@@ -13,6 +11,20 @@ namespace Music_Releases_Website.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AmazonSearch _amazonSearch;
+        private readonly ReleaseSearch _releaseSearch;
+
+        public HomeController()
+        {
+            IKernel kernal = new StandardKernel(new BindModule());
+            var amazonSearchRepo = kernal.Get<IAmazonSearchRepository>();
+            var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
+            var itunesItemRepo = kernal.Get<IItunesItemRepository>();
+
+            _releaseSearch = new ReleaseSearch(amazonItemRepo, itunesItemRepo);
+            _amazonSearch = new AmazonSearch(amazonSearchRepo);
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -26,13 +38,10 @@ namespace Music_Releases_Website.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {
-                    IKernel kernal = new StandardKernel(new BindModule());
-                    var amazonSearchRepo = kernal.Get<IAmazonSearchRepository>();
-                    var amazonSearch = new AmazonSearch(amazonSearchRepo);
-                    var results = amazonSearch.SearchFromCommaSeparatedList(bandsModel.ListOfBands);
+                {                  
+                    var results = _amazonSearch.SearchFromCommaSeparatedList(bandsModel.ListOfBands);
 
-                    return View("~/Views/Search/Results.cshtml", results);
+                    return View("~/Views/Search/Results.cshtml", results.ToList());
                 }
                 else
                 {
@@ -47,15 +56,11 @@ namespace Music_Releases_Website.Controllers
 
         public ActionResult Detail(string asin)
         {
-            IKernel kernal = new StandardKernel(new BindModule());
-            var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
-            var itunesItemRepo = kernal.Get<IItunesItemRepository>();
-            var releaseSearch = new ReleaseSearch(amazonItemRepo, itunesItemRepo);
             MusicReleaseCollection musicReleaseDetailModel = null;
 
             try
             {
-                musicReleaseDetailModel = releaseSearch.GetDetails(asin);
+                musicReleaseDetailModel = _releaseSearch.GetDetails(asin);
             }
             catch(WebException ex)
             {

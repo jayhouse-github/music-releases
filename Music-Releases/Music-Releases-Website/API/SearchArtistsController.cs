@@ -13,14 +13,20 @@ namespace Music_Releases_Website.API
 {
     public class SearchArtistsController : ApiController
     {
-        // GET: api/SearchArtists
-        [Route("api/searchartists/{listOfBands}")]
-        public IHttpActionResult Get(string listOfBands)
+        private readonly AmazonSearch _amazonSearch;
+
+        public SearchArtistsController()
         {
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonSearchRepo = kernal.Get<IAmazonSearchRepository>();
-            var amazonSearch = new AmazonSearch(amazonSearchRepo);
-            var results = amazonSearch.SearchFromCommaSeparatedList(listOfBands);
+            _amazonSearch = new AmazonSearch(amazonSearchRepo);
+        }
+
+        // GET: api/SearchArtists
+        [Route("api/searchartists/{listOfBands}")]
+        public IHttpActionResult Get(string listOfBands)
+        {          
+            var results = _amazonSearch.SearchFromCommaSeparatedList(listOfBands);
 
             return Ok(results);
         }

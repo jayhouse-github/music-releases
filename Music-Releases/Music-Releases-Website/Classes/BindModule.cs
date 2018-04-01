@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using Music_Releases.BL;
 using Music_Releases.Repository;
 using System.Configuration;
+using Music_Releases.BL.Interfaces;
 
 namespace Music_Releases_Website.Classes
 {
@@ -26,6 +23,7 @@ namespace Music_Releases_Website.Classes
             Bind<IAmazonSearchRepository>().To<AmazonSearchRepository>().WithConstructorArgument("accessId", creds.AmazonAccessId).WithConstructorArgument("requestEndPoint", creds.AmazonEndPoint).WithConstructorArgument("associateTag", creds.AmazonAssociateTag).WithConstructorArgument("secretKey", creds.AmazonSecretKey);
             Bind<IAmazonItemRepository>().To<AmazonItemRepository>().WithConstructorArgument("accessId", creds.AmazonAccessId).WithConstructorArgument("requestEndPoint", creds.AmazonEndPoint).WithConstructorArgument("associateTag", creds.AmazonAssociateTag).WithConstructorArgument("secretKey", creds.AmazonSecretKey);
             Bind<IItunesItemRepository>().To<ItunesItemRepository>().WithConstructorArgument("affiliateId", creds.ItunesAffiliateId).WithConstructorArgument("requestUrl", creds.ItunesRequestUrl);
+            Bind<IListofBandsRepo>().To<ListOfBandsRepo>();
         }
     }
 }

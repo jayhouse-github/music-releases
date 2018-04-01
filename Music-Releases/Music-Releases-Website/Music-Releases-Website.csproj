@@ -352,6 +352,10 @@
       <Project>{35423627-0176-4268-a62b-ec43fc5dc765}</Project>
       <Name>Music-Releases.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Music-Releases.DataObjects\Music-Releases.DataObjects.csproj">
+      <Project>{ffb389c3-294f-415d-b740-b965bfb2c984}</Project>
+      <Name>Music-Releases.DataObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Music-Releases.Repository\Music-Releases.Repository.csproj">
       <Project>{2044fc72-cb87-4aff-9f27-715ef908388a}</Project>
       <Name>Music-Releases.Repository</Name>

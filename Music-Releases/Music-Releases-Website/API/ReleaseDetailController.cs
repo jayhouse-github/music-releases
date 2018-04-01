@@ -13,19 +13,26 @@ namespace Music_Releases_Website.API
 {
     public class ReleaseDetailController : ApiController
     {
-        // GET: api/ReleaseDetail
-        [Route("api/releasedetail/{asin}")]
-        public IHttpActionResult Get(string asin)
+        private readonly ReleaseSearch _releaseSearch;
+
+        public ReleaseDetailController()
         {
             IKernel kernal = new StandardKernel(new BindModule());
             var amazonItemRepo = kernal.Get<IAmazonItemRepository>();
             var itunesItemRepo = kernal.Get<IItunesItemRepository>();
-            var releaseSearch = new ReleaseSearch(amazonItemRepo, itunesItemRepo);
+
+            _releaseSearch = new ReleaseSearch(amazonItemRepo, itunesItemRepo);
+        }
+
+        // GET: api/ReleaseDetail
+        [Route("api/releasedetail/{asin}")]
+        public IHttpActionResult Get(string asin)
+        {
             MusicReleaseCollection musicReleaseDetailModel = null;
 
             try
             {
-                musicReleaseDetailModel = releaseSearch.GetDetails(asin);
+                musicReleaseDetailModel = _releaseSearch.GetDetails(asin);
             }
             catch (WebException ex)
             {

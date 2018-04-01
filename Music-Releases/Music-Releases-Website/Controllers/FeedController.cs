@@ -1,36 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using Music_Releases_Website.Classes;
 using Music_Releases.BL;
+using Music_Releases.BL.Services;
+using Music_Releases.BL.Interfaces;
 
 namespace Music_Releases_Website.Controllers
 {
     public class FeedController : Controller
     {
+        private readonly ListOfBandsService _service;
+        private readonly AmazonSearch _amazonSearch;
+
+        public FeedController()
+        {
+            IKernel kernal = new StandardKernel(new BindModule());
+            var listOfBandsRepo = kernal.Get<IListofBandsRepo>();
+            var amazonSearchRepo = kernal.Get<IAmazonSearchRepository>();
+
+            _service = new ListOfBandsService(listOfBandsRepo);
+            _amazonSearch = new AmazonSearch(amazonSearchRepo);
+        }
 
         // GET: Feed
         [HandleError]
         public ActionResult Index(int id)
         {
-            string bands = "";
+            var bands = _service.GetBandsFromId(id);
 
-            //Access DB for bands in DB entry
-            //Temp
-            if (id == 3)
-                bands = "ride,the cure,depeche mode";
+            if (bands != null)
+            {
+                var results = _amazonSearch.SearchFromCommaSeparatedList(bands);
 
-            IKernel kernal = new StandardKernel(new BindModule());
-            var amazonSearchRepo = kernal.Get<IAmazonSearchRepository>();
+                return RssResult(results.ToList());
+            }
 
-            var amazonSearch = new AmazonSearch(amazonSearchRepo);
-
-            var results = amazonSearch.SearchFromCommaSeparatedList(bands);
-
-            return RssResult(results.ToList());
+            return null;
         }
 
         private RssResult RssResult(List<ExtendedItem> feedItems)
