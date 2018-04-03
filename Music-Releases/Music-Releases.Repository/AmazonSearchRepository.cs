@@ -8,10 +8,10 @@ namespace Music_Releases.Repository
 {
     public class AmazonSearchRepository : IAmazonSearchRepository
     {
-        private string _accessID;
-        private string _requestEndpoint;
-        private string _associateTag;
-        private string _secretKey;
+        protected string _accessID;
+        protected string _requestEndpoint;
+        protected string _associateTag;
+        protected string _secretKey;
 
         public AmazonSearchRepository(string accessId, string requestEndPoint, string associateTag, string secretKey)
         {

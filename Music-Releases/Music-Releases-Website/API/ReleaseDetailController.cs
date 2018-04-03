@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Ninject;
 using Music_Releases.BL;
@@ -26,7 +27,7 @@ namespace Music_Releases_Website.API
 
         // GET: api/ReleaseDetail
         [Route("api/releasedetail/{asin}")]
-        public IHttpActionResult Get(string asin)
+        public async Task<IHttpActionResult> Get(string asin)
         {
             MusicReleaseCollection musicReleaseDetailModel = null;
 

@@ -10,8 +10,8 @@ namespace Music_Releases.Repository
 {
     public class ItunesItemRepository : IItunesItemRepository
     {
-        string _affiliateId;
-        string _requestUrl;
+        protected string _affiliateId;
+        protected string _requestUrl;
 
         public ItunesItemRepository(string affiliateId, string requestUrl)
         {

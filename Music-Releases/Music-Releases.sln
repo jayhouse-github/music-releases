@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music-Releases-Website.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music-Releases.DataObjects", "Music-Releases.DataObjects\Music-Releases.DataObjects.csproj", "{FFB389C3-294F-415D-B740-B965BFB2C984}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music-Releases.OAuth", "Music-Releases.OAuth\Music-Releases.OAuth.csproj", "{06F4B822-FA36-4E23-AA14-348D9D812174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{FFB389C3-294F-415D-B740-B965BFB2C984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFB389C3-294F-415D-B740-B965BFB2C984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFB389C3-294F-415D-B740-B965BFB2C984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F4B822-FA36-4E23-AA14-348D9D812174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F4B822-FA36-4E23-AA14-348D9D812174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F4B822-FA36-4E23-AA14-348D9D812174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F4B822-FA36-4E23-AA14-348D9D812174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

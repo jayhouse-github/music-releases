@@ -19,7 +19,7 @@ namespace Music_Releases.BL
             _itunesRepo = itunesRepo;
         }
 
-         public MusicReleaseCollection GetDetails(string asin)
+        public MusicReleaseCollection GetDetails(string asin)
         {
             ReleaseDetailItem releaseDetail = null;
             MusicReleaseCollection musicReleaseDetailModel = null;

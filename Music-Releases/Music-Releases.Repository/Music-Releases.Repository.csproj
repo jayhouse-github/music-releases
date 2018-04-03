@@ -53,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmazonItemRepository.cs" />
+    <Compile Include="AmazonItemRepositoryAsync.cs" />
     <Compile Include="AmazonSearchRepository.cs" />
+    <Compile Include="AmazonSearchRepositoryAsync.cs" />
     <Compile Include="CatalogueExtendedInfo.cs" />
     <Compile Include="CatalogueInfo.cs" />
     <Compile Include="Helpers\AmazonHelper.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Helpers\SignedRequestHelper.cs" />
     <Compile Include="ItunesItemCollection.cs" />
     <Compile Include="ItunesItemRepository.cs" />
+    <Compile Include="ItunesItemRepositoryAsync.cs" />
     <Compile Include="ListOfBandsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -47,10 +47,13 @@
     <Compile Include="Enums\SearchType.cs" />
     <Compile Include="ExtendedItem.cs" />
     <Compile Include="Interfaces\IAmazonItemRepository.cs" />
+    <Compile Include="Interfaces\IAmazonItemRepositoryAsync.cs" />
     <Compile Include="Interfaces\IAmazonSearchRepository.cs" />
+    <Compile Include="Interfaces\IAmazonSearchRepositoryAsync.cs" />
     <Compile Include="Interfaces\ICatalogueExtendedInfo.cs" />
     <Compile Include="Interfaces\ICatalogueInfo.cs" />
     <Compile Include="Interfaces\IItunesItemRepository.cs" />
+    <Compile Include="Interfaces\IItunesItemRepositoryAsync.cs" />
     <Compile Include="Interfaces\IListofBandsRepo.cs" />
     <Compile Include="ListOfBandsModel.cs" />
     <Compile Include="ReleaseDetailItem.cs" />
